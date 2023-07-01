@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-kube-news
+spec:
+  selector:
+    matchLabels:
+      app: app-kube-news
+  template:
+    metadata:
+      labels:
+        app: app-kube-news
+    spec:
+      containers:
+        - name: app-kube-news
+          image: gleidsonscosta/kube-news:v1
+          ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+          env:
+            - name: DB_DRIVER
+              value: postgres
+            - name: DB_HOST
+              value: service-postgres
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              value: kubedevnews
+            - name: DB_NAME
+              value: kubedevnews
+            - name: DB_PASSWORD
+              value: Pg#123  
+
+
+
+
+    
