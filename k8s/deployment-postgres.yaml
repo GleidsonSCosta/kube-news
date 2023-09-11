@@ -16,10 +16,16 @@ spec:
           image: postgres:15.3
           ports:
             - containerPort: 5432
-          env:
-          - name: POSTGRES_USER
-            value: kubedevnews
-          - name: POSTGRES_PASSWORD
-            value: Pg#123
-          - name: POSTGRES_DB
-            value: kubedevnews 
+          envFrom:
+            - secretRef:
+                name: secret-postgres
+            # - configMapRef:
+            #     name: configmap-postgres
+
+          # env:
+          # - name: POSTGRES_USER
+          #   value: kubedevnews
+          # - name: POSTGRES_PASSWORD
+          #   value: Pg#123
+          # - name: POSTGRES_DB
+          #   value: kubedevnews 

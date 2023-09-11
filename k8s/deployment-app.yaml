@@ -18,19 +18,33 @@ spec:
           - containerPort: 8080
             name: http
             protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: configmap-app
           env:
-            - name: DB_DRIVER
-              value: postgres
-            - name: DB_HOST
-              value: service-postgres
-            - name: DB_PORT
-              value: "5432"
             - name: DB_USER
-              value: kubedevnews
-            - name: DB_NAME
-              value: kubedevnews
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_USER
+                  name: secret-postgres
             - name: DB_PASSWORD
-              value: Pg#123  
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: secret-postgres            
+          # env:
+          #   - name: DB_DRIVER
+          #     value: postgres
+          #   - name: DB_HOST
+          #     value: service-postgres
+          #   - name: DB_PORT
+          #     value: "5432"
+          #   - name: DB_USER
+          #     value: kubedevnews
+          #   - name: DB_NAME
+          #     value: kubedevnews
+          #   - name: DB_PASSWORD
+          #     value: Pg#123  
 
 
 
