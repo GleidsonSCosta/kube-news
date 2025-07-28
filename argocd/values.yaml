@@ -700,7 +700,7 @@ configs:
     annotations: {}
 
     # -- Shared secret for authenticating GitHub webhook events
-    githubSecret: "c2VuaGExMjM0"
+    githubSecret: "senha1234"
     # -- Shared secret for authenticating GitLab webhook events
     gitlabSecret: ""
     # -- Shared secret for authenticating BitbucketServer webhook events
