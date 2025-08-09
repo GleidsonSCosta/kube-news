@@ -470,7 +470,10 @@ configs:
 
     # -- File containing user-defined policies and role definitions.
     # @default -- `''` (See [values.yaml])
-    policy.csv: ""
+    policy.csv: |
+      p, role:developer, applications, get, *, allow
+      p, role:developer, applications, sync, my-project/*, allow
+      g, gleidson, role:developer
     # Policy rules are in the form:
     #  p, subject, resource, action, object, effect
     # Role definitions and bindings are in the form:
@@ -4150,6 +4153,7 @@ commitServer:
     # -- Default network policy rules used by commit server
     # @default -- `false` (defaults to global.networkPolicy.create)
     create: false
+
 
 
 
