@@ -472,7 +472,7 @@ configs:
     # @default -- `''` (See [values.yaml])
     policy.csv: |
       p, role:developer, applications, get, *, allow
-      p, role:developer, applications, sync, my-project/*, allow
+      p, role:developer, applications, sync, projects/my-project/*, allow
       g, gleidson, role:developer
     # Policy rules are in the form:
     #  p, subject, resource, action, object, effect
@@ -4153,6 +4153,7 @@ commitServer:
     # -- Default network policy rules used by commit server
     # @default -- `false` (defaults to global.networkPolicy.create)
     create: false
+
 
 
 
